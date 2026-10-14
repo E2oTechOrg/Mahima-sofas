@@ -4,7 +4,7 @@ name: Deploy Mahima Sofas Website
 on:
   push:
     branches:
-      - kiruthika
+       - proc
   workflow_dispatch:
 
 permissions:
