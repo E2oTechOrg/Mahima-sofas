@@ -43,8 +43,10 @@
       .ms-footer .btn-icon { width: 42px; height: 42px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
       .ms-footer .btn-icon:hover { text-decoration: none !important; }
     </style>
+    <link rel="stylesheet" href="./assets/css/ms-enhance.css" />
   </head>
   <body>
+    <div class="ms-progress" aria-hidden="true"></div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3 navbar-custom sticky-top">
       <div class="container-fluid px-0">
@@ -66,16 +68,22 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-          <a href="tel:+919688447097" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset">
-            <i class="bi bi-telephone"></i>
-            <span class="d-none d-sm-inline">+91 96884 47097</span>
-          </a>
-          <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="d-lg-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-            </svg>
-          </a>
-        </div>
+  <div class="d-flex align-items-center gap-3">
+    <a href="tel:+919688447097" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset" aria-label="Call">
+      <i class="bi bi-telephone"></i>
+      <span class="d-none d-sm-inline">+91 96884 47097</span>
+    </a>
+    <a href="https://wa.me/919345647097" target="_blank" rel="noopener" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset" aria-label="WhatsApp">
+      <i class="bi bi-whatsapp text-success"></i>
+      <span class="d-none d-sm-inline">+91 93456 47097</span>
+    </a>
+  </div>
+  <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="d-lg-none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+    </svg>
+  </a>
+</div>
       </div>
     </nav>
 
@@ -146,7 +154,7 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-6">
-                <h2 class="display-5 mb-3">About Mahima Sofa's</h2>
+                <h2 class="display-5 mb-3" data-reveal>About Mahima Sofa's</h2>
                 <p class="text-muted lead">
                   Discover the story behind Mahima Sofa's — where design meets comfort. We craft sofas that elevate your home experience.
                 </p>
@@ -159,10 +167,10 @@
         <div class="py-lg-8 py-5">
           <div class="container">
             <div class="row align-items-center g-5 mx-lg-8">
-              <div class="col-md-6">
+              <div class="col-md-6" data-reveal="left">
                 <img src="./assets/images/mahima/img-61.webp" alt="Teal and beige 3-seater sofa made by Mahima Sofa's" class="img-fluid" width="800" height="600" loading="lazy">
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" data-reveal="right">
                 <div class="ms-lg-8">
                   <h2 class="mb-3">Our Mission</h2>
                   <p class="text-muted">
@@ -180,9 +188,9 @@
         <!-- Values -->
         <div class="py-lg-9 py-5 bg-light">
           <div class="container text-center">
-            <h2 class="mb-5">Our Core Values</h2>
+            <h2 class="mb-5" data-reveal>Our Core Values</h2>
             <div class="row g-4">
-              <div class="col-md-4">
+              <div class="col-md-4" data-reveal style="--d:0s">
                 <div class="card rounded-0 border-0 shadow-sm h-100 p-4">
                   <div class="card-body">
                     <div class="mb-5">
@@ -195,7 +203,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4" data-reveal style="--d:.15s">
                 <div class="card rounded-0 border-0 shadow-sm h-100 p-4">
                   <div class="card-body">
                     <div class="mb-5">
@@ -209,7 +217,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-4" data-reveal style="--d:.3s">
                 <div class="card rounded-0 border-0 shadow-sm h-100 p-4">
                   <div class="card-body">
                     <div class="mb-5">
@@ -230,7 +238,7 @@
       <!-- Collection -->
       <section id="collection" class="py-lg-10 py-6 mx-3 mx-lg-0 bg-white">
         <div class="container">
-          <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-md-between gap-4 mb-5">
+          <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-md-between gap-4 mb-5" data-reveal>
             <div class="col-md-7">
               <h2 class="display-4">Our Collection</h2>
               <p class="mb-0 lead">Real sofas made in our Salem factory. Tap any photo to see it larger, or enquire on WhatsApp for the price.</p>
@@ -932,11 +940,11 @@
       </section>
 
       <!-- Factory direct band -->
-      <section style="background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(./assets/images/mahima/hero-3.webp) no-repeat center 60% / cover;" class="py-lg-11 py-6">
+      <section id="factoryBand" style="background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(./assets/images/mahima/hero-3.webp) no-repeat center 60% / cover;" class="py-lg-11 py-6">
         <div class="container">
           <div class="row justify-content-center align-items-center">
             <div class="col-lg-8">
-              <div class="card border-0 shadow-lg rounded-0">
+              <div class="card border-0 shadow-lg rounded-0" data-reveal="zoom">
                 <div class="card-body p-6 text-center">
                   <h2 class="mb-3">Direct from our factory to your home</h2>
                   <p class="lead mb-4">Visit us in Chinna Kollapatty, Salem, or call to talk about the sofa you have in mind.</p>
@@ -974,21 +982,41 @@
                 <i class="bi bi-telephone-fill me-3 text-secondary"></i>
                 <div>
                   <h5 class="fw-semibold mb-1 text-uppercase text-xs">Phone</h5>
-                  <p class="text-muted mb-0"><a href="tel:+919688447097" class="text-muted text-decoration-none">+91 96884 47097</a></p>
+                  <p class="text-muted mb-0"><a href="tel:+919688447097" class="text-muted text-decoration-none">+91 96884 47097</a><br><a href="tel:+919345647097" class="text-muted text-decoration-none">+91 93456 47097</a></p>
                 </div>
               </div>
 
-              <div class="d-flex align-items-start mb-3">
-                <i class="bi bi-person-fill me-3 text-secondary"></i>
+              <h5 class="fw-semibold mb-3 text-uppercase text-xs"><i class="bi bi-people-fill me-2 text-secondary"></i>Contact Persons</h5>
+
+              <div class="ms-person" data-reveal>
+                <div class="ms-avatar">VY</div>
                 <div>
-                  <h5 class="fw-semibold mb-1 text-uppercase text-xs">Contact Person</h5>
-                  <p class="text-muted mb-0">V. Yathavan</p>
+                  <p class="ms-person-role">Contact Person</p>
+                  <p class="ms-person-name">V. Yathavan (Boobalan)</p>
+                  <!-- <a class="ms-num" href="tel:+919688447097">+91 96884 47097</a> -->
                 </div>
+                <!-- <div class="ms-person-actions">
+                  <a href="tel:+919688447097" aria-label="Call Yathavan"><i class="bi bi-telephone"></i></a>
+                  <a class="wa" href="https://wa.me/919688447097" target="_blank" rel="noopener" aria-label="WhatsApp Yathavan"><i class="bi bi-whatsapp"></i></a>
+                </div> -->
               </div>
+
+              <!-- <div class="ms-person" data-reveal style="--d:.12s">
+                <div class="ms-avatar">B</div>
+                <div>
+                  <p class="ms-person-role">Contact Person</p>
+                  <p class="ms-person-name">Boobalan</p>
+                  <a class="ms-num" href="tel:+919345647097">+91 93456 47097</a>
+                </div>
+                <div class="ms-person-actions">
+                  <a href="tel:+919345647097" aria-label="Call Boobalan"><i class="bi bi-telephone"></i></a>
+                  <a class="wa" href="https://wa.me/919345647097" target="_blank" rel="noopener" aria-label="WhatsApp Boobalan"><i class="bi bi-whatsapp"></i></a>
+                </div>
+              </div> -->
             </div>
 
             <!-- Contact Form (sends the message to WhatsApp) -->
-            <div class="col-md-8">
+            <div class="col-md-8" data-reveal="right">
               <div class="card">
                 <div class="card-body p-lg-5">
                   <h4 class="mb-4">Send a Message</h4>
@@ -1023,7 +1051,7 @@
           <!-- Map -->
           <div class="row mt-5">
             <div class="col-12">
-              <div class="map-container shadow-sm">
+              <div class="map-container shadow-sm" data-reveal="zoom">
                 <iframe
                   src="https://www.google.com/maps?q=Chinna+Kollapatty,+Anna+Salai+Street,+Salem+636008&output=embed"
                   width="100%"
@@ -1096,12 +1124,24 @@
             <p class="mb-2 d-flex">
               <i class="bi bi-telephone-fill text-white me-3"></i>
               <a href="tel:+919688447097" class="text-white text-decoration-none">+91 96884 47097</a>
+              <span class="text-white-50 mx-1">/</span>
+              <a href="tel:+919345647097" class="text-white text-decoration-none">+91 93456 47097</a>
             </p>
 
-            <p class="mb-3 d-flex">
-              <i class="bi bi-person-fill text-white me-3"></i>
-              <span class="text-white">V. Yathavan</span>
-            </p>
+            <div class="ms-person">
+              <div class="ms-avatar">VY</div>
+              <div>
+                <p class="ms-person-name">V. Yathavan (Boobalan)</p>
+                <!-- <a class="ms-num" href="tel:+919688447097">+91 96884 47097</a> -->
+              </div>
+            </div>
+            <!-- <div class="ms-person mb-3">
+              <div class="ms-avatar">B</div>
+              <div>
+                <p class="ms-person-name">Boobalan</p>
+                <a class="ms-num" href="tel:+919345647097">+91 93456 47097</a>
+              </div>
+            </div> -->
 
             <h6 class="text-uppercase text-white py-2">Chat With Us</h6>
             <div class="d-flex gap-2">
@@ -1127,6 +1167,13 @@
       </div>
     </footer>
 
+    <!-- Floating actions -->
+    <div class="ms-float">
+      <a class="wa" href="https://wa.me/919688447097" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      <a class="call" href="tel:+919688447097" aria-label="Call now"><i class="bi bi-telephone-fill"></i></a>
+    </div>
+    <button type="button" class="ms-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
     <!-- Mobile menu -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
       <div class="offcanvas-header px-4">
@@ -1151,6 +1198,7 @@
     </div>
 
     <script type="module" src="./assets/js/main.js"></script>
+    <script src="./assets/js/ms-enhance.js" defer></script>
 
     <script>
       // Collection: filter + "show more" + photo viewer
@@ -1167,7 +1215,7 @@
           var matches = items.filter(function (i) { return cat === 'all' || i.dataset.cat === cat; });
           items.forEach(function (i) { i.hidden = true; });
           shown = matches.slice(0, limit);
-          shown.forEach(function (i) { i.hidden = false; });
+          shown.forEach(function (i, n) { i.style.setProperty('--i', n % 12); i.hidden = false; });
           more.hidden = matches.length <= limit;
         }
         chips.forEach(function (c) {
