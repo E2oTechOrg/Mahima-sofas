@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import glob from 'fast-glob';
-import { copyFileSync, mkdirSync } from 'fs';
+import { copyFileSync, mkdirSync, cpSync } from 'node:fs';
 
 const htmlFiles = glob.sync('./src/**/*.html');
 
@@ -23,31 +23,43 @@ export default defineConfig({
     },
   },
 
-  plugins: [
-    {
-      name: 'copy-ms-enhance-assets',
-      closeBundle() {
-        const distDir = resolve(__dirname, 'dist');
-        const cssDir = resolve(distDir, 'assets/css');
-        const jsDir = resolve(distDir, 'assets/js');
 
-        mkdirSync(cssDir, { recursive: true });
-        mkdirSync(jsDir, { recursive: true });
+plugins: [
+  {
+    name: 'copy-ms-enhance-assets',
+    closeBundle() {
+      const distDir = resolve(__dirname, 'dist');
+      const cssDir = resolve(distDir, 'assets/css');
+      const jsDir = resolve(distDir, 'assets/js');
+      const imagesDir = resolve(distDir, 'assets/images');
 
-        copyFileSync(
-          resolve(__dirname, 'src/assets/css/ms-enhance.css'),
-          resolve(cssDir, 'ms-enhance.css')
-        );
+      mkdirSync(cssDir, { recursive: true });
+      mkdirSync(jsDir, { recursive: true });
+      mkdirSync(imagesDir, { recursive: true });
 
-        copyFileSync(
-          resolve(__dirname, 'src/assets/js/ms-enhance.js'),
-          resolve(jsDir, 'ms-enhance.js')
-        );
+      // Copy enhancement CSS
+      copyFileSync(
+        resolve(__dirname, 'src/assets/css/ms-enhance.css'),
+        resolve(cssDir, 'ms-enhance.css')
+      );
 
-        console.log('Copied ms-enhance.css and ms-enhance.js to dist.');
-      },
+      // Copy enhancement JavaScript
+      copyFileSync(
+        resolve(__dirname, 'src/assets/js/ms-enhance.js'),
+        resolve(jsDir, 'ms-enhance.js')
+      );
+
+      // Copy all images and preserve their subfolders
+      cpSync(
+        resolve(__dirname, 'src/assets/images'),
+        imagesDir,
+        { recursive: true }
+      );
+
+      console.log('Enhancement assets and images copied successfully.');
     },
-  ],
+  },
+],
 
   build: {
     outDir: resolve(__dirname, 'dist'),
