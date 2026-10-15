@@ -1,7 +1,7 @@
-
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import glob from 'fast-glob';
+import { copyFileSync, mkdirSync } from 'fs';
 
 const htmlFiles = glob.sync('./src/**/*.html');
 
@@ -23,6 +23,32 @@ export default defineConfig({
     },
   },
 
+  plugins: [
+    {
+      name: 'copy-ms-enhance-assets',
+      closeBundle() {
+        const distDir = resolve(__dirname, 'dist');
+        const cssDir = resolve(distDir, 'assets/css');
+        const jsDir = resolve(distDir, 'assets/js');
+
+        mkdirSync(cssDir, { recursive: true });
+        mkdirSync(jsDir, { recursive: true });
+
+        copyFileSync(
+          resolve(__dirname, 'src/assets/css/ms-enhance.css'),
+          resolve(cssDir, 'ms-enhance.css')
+        );
+
+        copyFileSync(
+          resolve(__dirname, 'src/assets/js/ms-enhance.js'),
+          resolve(jsDir, 'ms-enhance.js')
+        );
+
+        console.log('Copied ms-enhance.css and ms-enhance.js to dist.');
+      },
+    },
+  ],
+
   build: {
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: true,
@@ -42,7 +68,7 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name].js',
 
         assetFileNames: ({ name }) => {
-          if (/\.(gif|jpe?g|png|svg)$/i.test(name ?? '')) {
+          if (/\.(gif|jpe?g|png|svg|webp)$/i.test(name ?? '')) {
             return 'assets/images/[name][extname]';
           }
 
