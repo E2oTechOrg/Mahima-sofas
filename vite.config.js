@@ -1,13 +1,21 @@
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import glob from 'fast-glob';
-import { copyFileSync, mkdirSync, cpSync } from 'node:fs';
 
-const htmlFiles = glob.sync('./src/**/*.html');
+import { defineConfig } from 'vite';
+import { resolve, relative } from 'node:path';
+import glob from 'fast-glob';
+import { mkdirSync, cpSync, existsSync } from 'node:fs';
+
+const projectRoot = __dirname;
+const srcDir = resolve(projectRoot, 'src');
+const distDir = resolve(projectRoot, 'dist');
+
+const htmlFiles = glob.sync('**/*.html', {
+  cwd: srcDir,
+  absolute: true,
+});
 
 export default defineConfig({
-  base: '/Mahima-sofas/',
-  root: resolve(__dirname, 'src'),
+  base: './',
+  root: srcDir,
 
   server: {
     host: true,
@@ -18,62 +26,55 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "sass:math";`,
+        additionalData: '@use "sass:math";',
       },
     },
   },
 
+  plugins: [
+    {
+      name: 'copy-static-assets',
 
-plugins: [
-  {
-    name: 'copy-ms-enhance-assets',
-    closeBundle() {
-      const distDir = resolve(__dirname, 'dist');
-      const cssDir = resolve(distDir, 'assets/css');
-      const jsDir = resolve(distDir, 'assets/js');
-      const imagesDir = resolve(distDir, 'assets/images');
+      closeBundle() {
+        const assetsSrc = resolve(srcDir, 'assets');
+        const assetsDist = resolve(distDir, 'assets');
 
-      mkdirSync(cssDir, { recursive: true });
-      mkdirSync(jsDir, { recursive: true });
-      mkdirSync(imagesDir, { recursive: true });
+        mkdirSync(assetsDist, { recursive: true });
 
-      // Copy enhancement CSS
-      copyFileSync(
-        resolve(__dirname, 'src/assets/css/ms-enhance.css'),
-        resolve(cssDir, 'ms-enhance.css')
-      );
+        // Copy static SCSS files
+        const scssSrc = resolve(assetsSrc, 'scss');
+        if (existsSync(scssSrc)) {
+          cpSync(scssSrc, resolve(assetsDist, 'scss'), {
+            recursive: true,
+          });
+        }
 
-      // Copy enhancement JavaScript
-      copyFileSync(
-        resolve(__dirname, 'src/assets/js/ms-enhance.js'),
-        resolve(jsDir, 'ms-enhance.js')
-      );
+        // Copy images
+        const imagesSrc = resolve(assetsSrc, 'images');
+        if (existsSync(imagesSrc)) {
+          cpSync(imagesSrc, resolve(assetsDist, 'images'), {
+            recursive: true,
+          });
+        }
 
-      // Copy all images and preserve their subfolders
-      cpSync(
-        resolve(__dirname, 'src/assets/images'),
-        imagesDir,
-        { recursive: true }
-      );
-
-      console.log('Enhancement assets and images copied successfully.');
+        console.log('Static assets copied successfully.');
+      },
     },
-  },
-],
+  ],
 
   build: {
-    outDir: resolve(__dirname, 'dist'),
+    outDir: distDir,
     emptyOutDir: true,
 
     rollupOptions: {
-      input: htmlFiles.length
-        ? Object.fromEntries(
-            htmlFiles.map((file) => [
-              file.replace(/^\.\/src\//, '').replace(/\.html$/, ''),
-              resolve(__dirname, file),
-            ])
-          )
-        : resolve(__dirname, 'src/index.html'),
+      input: Object.fromEntries(
+        htmlFiles.map((file) => [
+          relative(srcDir, file)
+            .replace(/\\/g, '/')
+            .replace(/\.html$/, ''),
+          file,
+        ])
+      ),
 
       output: {
         chunkFileNames: 'assets/js/[name].js',
