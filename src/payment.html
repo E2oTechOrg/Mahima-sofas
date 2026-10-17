@@ -1,11 +1,16 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Payment &amp; Refund Policy - Mahima Sofa's, direct factory sales of sofas in Salem." />
     <title>Payment &amp; Refund Policy - Mahima Sofa's</title>
+    <link rel="icon" type="image/png" href="./assets/images/logo/favicon.png" />
+       <link rel="stylesheet" href="./assets/css/ms-enhance.css" />
     <style>
+      .ms-logo-mark { height: 52px; width: auto; }
+      .ms-policy-img { display: block; width: 100%; height: auto; max-height: 320px; object-fit: cover; }
+
       /* --- Footer --- */
       .ms-footer-main { background: #2b2f33; }
       .ms-footer-bottom { background: #1b1d20; }
@@ -18,7 +23,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm px-4 py-3 navbar-custom sticky-top">
       <div class="container-fluid px-0">
-        <a class="navbar-brand" href="index.html#home">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html#home">
+          <img src="./assets/images/logo/logo-mark.png" alt="Mahima Sofa's logo" width="52" height="52" class="ms-logo-mark">
           <span class="d-flex flex-column text-uppercase text-xs fw-bold lh-sm">
             <span style="letter-spacing: .12rem;">Mahima Sofa's</span>
             <span>Direct Factory Sales</span>
@@ -28,23 +34,29 @@
         <div class="mx-auto d-lg-block d-none">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.html#collection">Collection</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#about">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#collection">Collection</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
           </ul>
         </div>
 
         <div class="d-flex align-items-center gap-4">
-          <a href="tel:+919688447097" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset">
-            <i class="bi bi-telephone"></i>
-            <span class="d-none d-sm-inline">+91 96884 47097</span>
-          </a>
-          <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="d-lg-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-            </svg>
-          </a>
-        </div>
+  <div class="d-flex align-items-center gap-3">
+    <a href="tel:+919688447097" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset" aria-label="Call">
+      <i class="bi bi-telephone"></i>
+      <span class="d-none d-sm-inline">+91 96884 47097</span>
+    </a>
+    <a href="https://wa.me/919345647097" target="_blank" rel="noopener" class="d-flex align-items-center gap-2 fw-bold text-decoration-none text-reset" aria-label="WhatsApp">
+      <i class="bi bi-whatsapp text-success"></i>
+      <span class="d-none d-sm-inline">+91 93456 47097</span>
+    </a>
+  </div>
+  <a data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu" class="d-lg-none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+    </svg>
+  </a>
+</div>
       </div>
     </nav>
 
@@ -57,6 +69,9 @@
               <h1 class="display-5 mt-3 mb-2">Payment &amp; Refund Policy</h1>
               <p class="lead text-muted mb-1">How payments work for orders with Mahima Sofa's, and when a refund applies.</p>
               <p class="small text-muted">Last updated: 14 October 2026</p>
+
+              <img src="./assets/images/mahima/payment-refund.svg" alt="Illustration showing advance payment, receipt and refund for a sofa order" class="ms-policy-img rounded my-4" width="800" height="360">
+
               <hr class="mb-0">
 
             <h2 class="h4 mt-5 mb-3">Payment</h2>
@@ -101,20 +116,16 @@
         <div class="row g-4 pt-2">
 
           <!-- Brand -->
-          <div class="col-lg-3 col-md-6">
-            <a class="d-inline-block text-decoration-none mb-3" href="index.html#home">
-              <span class="d-flex flex-column text-uppercase text-white text-xs fw-bold lh-sm">
-                <span style="letter-spacing: .12rem;">Mahima Sofa's</span>
-                <span>Direct Factory Sales</span>
-              </span>
-            </a>
-            <p class="text-light mb-0">
-              Mahima Sofa's makes comfortable, stylish sofas in its own factory in Salem.
-              Buy direct from the maker, choose your fabric and size, and get a sofa
-              that suits your home at a fair factory price.
-            </p>
-          </div>
-
+<div class="col-lg-3 col-md-6">
+  <a class="d-inline-block mb-3" href="index.html#home">
+    <img src="./assets/images/logo/logo-full-white.png" alt="Mahima Sofa - Direct Factory Sales" width="180" class="d-block" style="height:auto;">
+  </a>
+  <p class="text-light mb-0">
+    Mahima Sofa's makes comfortable, stylish sofas in its own factory in Salem.
+    Buy direct from the maker, choose your fabric and size, and get a sofa
+    that suits your home at a fair factory price.
+  </p>
+</div>
           <!-- Quick Links -->
           <div class="col-lg-3 col-md-6">
             <h4 class="h5 text-uppercase text-light mb-4">Quick Links</h4>
@@ -138,34 +149,37 @@
             </div>
           </div>
 
-
           <!-- Contact -->
-          <div class="col-lg-3 col-md-6">
-            <h4 class="h5 text-uppercase text-light mb-4">Contact Us</h4>
+<div class="col-lg-3 col-md-6">
+  <h4 class="h5 text-uppercase text-light mb-4">Contact Us</h4>
 
-            <p class="mb-2 d-flex">
-              <i class="bi bi-geo-alt-fill text-white me-3"></i>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Chinna+Kollapatty+Anna+Salai+Street+Salem+636008" target="_blank" rel="noopener" class="text-white text-decoration-none">
-                Chinna Kollapatty, Anna Salai Street,<br>Opp. Mariyamman Kovil,<br>Salem - 636 008.
-              </a>
-            </p>
+  <p class="mb-2 d-flex">
+    <i class="bi bi-geo-alt-fill text-white me-3"></i>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Chinna+Kollapatty+Anna+Salai+Street+Salem+636008" target="_blank" rel="noopener" class="text-white text-decoration-none">
+      Chinna Kollapatty, Anna Salai Street,<br>Opp. Mariyamman Kovil,<br>Salem - 636 008.
+    </a>
+  </p>
 
-            <p class="mb-2 d-flex">
-              <i class="bi bi-telephone-fill text-white me-3"></i>
-              <a href="tel:+919688447097" class="text-white text-decoration-none">+91 96884 47097</a>
-            </p>
+  <p class="mb-2 d-flex">
+    <i class="bi bi-telephone-fill text-white me-3"></i>
+    <a href="tel:+919688447097" class="text-white text-decoration-none">+91 96884 47097</a>
+    <span class="text-white-50 mx-1">/</span>
+    <a href="tel:+919345647097" class="text-white text-decoration-none">+91 93456 47097</a>
+  </p>
 
-            <p class="mb-3 d-flex">
-              <i class="bi bi-person-fill text-white me-3"></i>
-              <span class="text-white">V. Yathavan</span>
-            </p>
+  <div class="ms-person">
+    <div class="ms-avatar">VY</div>
+    <div>
+      <p class="ms-person-name">V. Yathavan (Boobalan)</p>
+    </div>
+  </div>
 
-            <h6 class="text-uppercase text-white py-2">Chat With Us</h6>
-            <div class="d-flex gap-2">
-              <a class="btn btn-outline-light btn-icon" href="https://wa.me/919688447097" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-              <a class="btn btn-outline-light btn-icon" href="tel:+919688447097" aria-label="Call"><i class="bi bi-telephone"></i></a>
-            </div>
-          </div>
+  <h6 class="text-uppercase text-white py-2">Chat With Us</h6>
+  <div class="d-flex gap-2">
+    <a class="btn btn-outline-light btn-icon" href="https://wa.me/919688447097" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    <a class="btn btn-outline-light btn-icon" href="tel:+919688447097" aria-label="Call"><i class="bi bi-telephone"></i></a>
+  </div>
+</div>
 
         </div>
       </div>
@@ -199,8 +213,8 @@
         <div class="navbar-custom">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html#home" data-bs-dismiss="offcanvas">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="index.html#collection" data-bs-dismiss="offcanvas">Collection</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#about" data-bs-dismiss="offcanvas">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#collection" data-bs-dismiss="offcanvas">Collection</a></li>
             <li class="nav-item"><a class="nav-link" href="index.html#contact" data-bs-dismiss="offcanvas">Contact</a></li>
           </ul>
         </div>
